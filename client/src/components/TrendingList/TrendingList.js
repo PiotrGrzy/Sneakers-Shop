@@ -1,7 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const TrendingList = () => {
-  return <div className="trending">Trending product list infinity slider</div>;
+const TrendingList = ({ isLoading, trendingItems }) => {
+  if (isLoading) return <div>Loading trending items...</div>;
+
+  return (
+    <div className="trending">
+      {trendingItems.length < 1 ? (
+        <div>No items to view</div>
+      ) : (
+        trendingItems.map(item => <div key={item.id}>{item.model}</div>)
+      )}
+    </div>
+  );
 };
 
-export default TrendingList;
+const mapStateToProps = state => {
+  return {
+    isLoading: state.shop.isLoading,
+    trendingItems: state.shop.trending
+  };
+};
+
+export default connect(mapStateToProps)(TrendingList);

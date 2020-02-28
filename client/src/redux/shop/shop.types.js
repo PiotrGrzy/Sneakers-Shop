@@ -1,2 +1,3 @@
+export const SET_LOADING = 'SET_LOADING';
 export const FETCH_TRENDING_NOW = 'FETCH_TRENDING_NOW';
 export const FETCH_BY_QUERY = 'FETCH_BY_QUERY';
