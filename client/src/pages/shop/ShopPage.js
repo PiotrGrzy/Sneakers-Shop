@@ -15,8 +15,8 @@ const ShopPage = ({ fetchTrendingNow, setLoading }) => {
   return (
     <div className="shop">
       <h1>Main ShopPage</h1>
-      <ResultsList />
       <SearchBar />
+      <ResultsList />
       <TrendingList />
     </div>
   );
