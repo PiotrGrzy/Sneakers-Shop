@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from '../layouts/header/Header';
 
 import ShopPage from '../pages/shop/ShopPage';
+import Product from '../pages/product/Product';
 
 import './app.scss';
 
@@ -16,6 +17,7 @@ function App() {
       <Header />
 
       <Route exact path="/" component={ShopPage} />
+      <Route exact path="/sneakers/:id" component={Product} />
     </BrowserRouter>
   );
 }
