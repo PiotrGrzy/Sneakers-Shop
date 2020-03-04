@@ -5,6 +5,8 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import TrendingList from '../../components/TrendingList/TrendingList';
 import { fetchTrendingNow, setLoading } from '../../redux/shop/shop.actions';
 
+import './shop.scss';
+
 const ShopPage = ({ fetchTrendingNow, setLoading }) => {
   useEffect(() => {
     setLoading();
@@ -14,7 +16,6 @@ const ShopPage = ({ fetchTrendingNow, setLoading }) => {
 
   return (
     <div className="shop">
-      <h1>Main ShopPage</h1>
       <SearchBar />
       <ResultsList />
       <TrendingList />

@@ -1,0 +1,18 @@
+.cart {
+  width: 27rem;
+  position: absolute;
+  font-size: 1.4rem;
+  color: #ffffff;
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  padding: 1rem;
+  padding-bottom: 0;
+  background-color: #333;
+  z-index: 10;
+  border: 1px solid orangered;
+}
+
+.hidden {
+  display: none;
+}

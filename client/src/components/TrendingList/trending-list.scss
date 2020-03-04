@@ -1,5 +1,16 @@
 .trending-list {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.6);
+  // background-color: rgba(0, 0, 0, 0.6);
+
+  &__header {
+    margin-top: 4rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 2.8rem;
+    color: orangered;
+    text-align: center;
+    padding: 2rem;
+  }
 }

@@ -5,6 +5,7 @@ import Header from '../layouts/header/Header';
 
 import ShopPage from '../pages/shop/ShopPage';
 import Product from '../pages/product/Product';
+import CheckOutPage from '../pages/checkout/CheckOutPage';
 
 import './app.scss';
 
@@ -18,6 +19,7 @@ function App() {
 
       <Route exact path="/" component={ShopPage} />
       <Route exact path="/sneakers/:id" component={Product} />
+      <Route exact path="/checkout" component={CheckOutPage} />
     </BrowserRouter>
   );
 }

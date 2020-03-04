@@ -9,13 +9,16 @@ const TrendingList = ({ isLoading, trendingItems }) => {
   if (isLoading) return <div>Loading trending items...</div>;
 
   return (
-    <div className="trending-list">
-      {trendingItems.length < 1 ? (
-        <div>No items to view</div>
-      ) : (
-        trendingItems.map(item => <SneakerLI key={item.id} sneaker={item} />)
-      )}
-    </div>
+    <>
+      <h2 className="trending-list__header">Trending Now:</h2>
+      <div className="trending-list">
+        {trendingItems.length < 1 ? (
+          <div>No items to view</div>
+        ) : (
+          trendingItems.map(item => <SneakerLI key={item.id} sneaker={item} />)
+        )}
+      </div>
+    </>
   );
 };
 

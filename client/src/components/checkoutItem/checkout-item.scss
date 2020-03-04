@@ -1,0 +1,21 @@
+.checkout-item {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr) repeat(5, 1fr);
+  align-items: center;
+  justify-items: center;
+  font-size: 1.8rem;
+  color: #ffffff;
+
+  &__img {
+    display: block;
+    height: 10rem;
+    width: 10rem;
+  }
+  & > * {
+    margin: 1rem;
+  }
+
+  &__quantity {
+    color: orangered;
+  }
+}

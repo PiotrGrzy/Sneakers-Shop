@@ -1,0 +1,11 @@
+.results-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 0 4rem;
+  justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30rem);
+  gap: 1rem;
+}

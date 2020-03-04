@@ -1,0 +1,18 @@
+.cart-item {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr) 1fr;
+  align-items: center;
+
+  &__img {
+    display: block;
+    height: 6rem;
+    width: 6rem;
+  }
+  & > * {
+    margin: 1rem;
+  }
+
+  &__quantity {
+    color: orangered;
+  }
+}

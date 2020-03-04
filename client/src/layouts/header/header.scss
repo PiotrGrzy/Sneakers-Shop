@@ -7,7 +7,16 @@
   &__logo {
     font-size: 2.6rem;
     padding: 1rem;
-    color: #eb2325;
+    color: orangered;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo-img {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
   }
 
   &__nav-list {
@@ -20,9 +29,22 @@
   }
 
   &__nav-link {
+    position: relative;
     text-decoration: none;
     color: orangered;
     text-transform: uppercase;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
+  &__cart-quantity {
+    position: absolute;
+    top: -1rem;
+    right: -2rem;
+    background-color: orangered;
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
   }
 }

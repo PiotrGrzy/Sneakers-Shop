@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getSingleProduct, setLoading } from '../../redux/shop/shop.actions';
 import { addItemToCart } from '../../redux/cart/cart.actions';
@@ -39,19 +39,30 @@ const Product = ({
   const handleClick = () => {
     addItemToCart(product);
   };
-  const categoryTags = category
-    .map(item => (
-      <span className="product__category" key={item}>
-        {item}
-      </span>
-    ))
-    .join(' ');
-  const sizesRadios = sizes.split(' ').map(item => (
-    <>
-      <input type="radio" name="size" value={item} id={item} key={item} />
-      <label htmlFor={item}>{item}</label>
-    </>
+  const categoryTags = category.map(item => (
+    <span className="product__category" key={item}>
+      {item}
+    </span>
   ));
+
+  const sizesRadios = sizes.split(' ').map(item => (
+    <label key={item} className="product__sizes-container">
+      {item}
+      <input
+        className="product__sizes-input"
+        name="sizes"
+        type="radio"
+        value={item}
+      />
+      <span className="product__sizes-checkmark"></span>
+    </label>
+  ));
+
+  const genderStyle = {
+    color: '#f5b0bb'
+  };
+  if (gender === 'Men') genderStyle.color = '#b0d4f5';
+  if (gender === 'Kids') genderStyle.color = '#c6f5b0';
 
   return (
     <div className="product">
@@ -63,9 +74,17 @@ const Product = ({
           className="product__image"
         />
       </div>
-      <h3 className="product__brand">{brand}</h3>
-      <h4 className="product__model">{model}</h4>
-      <h5 className="product__gender">For: {gender}</h5>
+      <div className="product__info-wrapper">
+        <div>
+          <h3 className="product__brand">{brand}</h3>
+          <h4 className="product__model">{model}</h4>
+          <h5 className="product__gender" style={genderStyle}>
+            {gender}
+          </h5>
+        </div>
+        <div className="product__categories">{categoryTags}</div>
+        <p className="product__price">{price} $</p>
+      </div>
       <p className="product__description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illum
         pariatur officia blanditiis dolore inventore distinctio, reiciendis quae
@@ -81,9 +100,11 @@ const Product = ({
         corporis. Eum ex iure delectus expedita? Libero vel nihil aliquam
         veritatis amet.
       </p>
-      <div className="product__categories">{categoryTags}</div>
-      <p className="price">{price}</p>
-      <div className="product__sizes">{sizesRadios}</div>
+
+      <div className="product__sizes">
+        <p>Pick up your size:</p>
+        {sizesRadios}
+      </div>
       <CustomButton onClick={handleClick}>Add to Cart</CustomButton>
     </div>
   );
