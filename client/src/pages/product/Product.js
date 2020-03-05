@@ -9,6 +9,7 @@ import Spinner from '../../components/spinner/Spinner';
 import './product.scss';
 
 const Product = ({
+  history,
   match,
   isLoading,
   setLoading,
@@ -110,7 +111,12 @@ const Product = ({
         <p>Pick up your size:</p>
         {sizesRadios}
       </div>
-      <CustomButton onClick={handleClick}>Add to Cart</CustomButton>
+      <div className="product__links">
+        <p className="product__link-back" onClick={() => history.push('/')}>
+          <i className="lni lni-arrow-left"></i> Back
+        </p>
+        <CustomButton onClick={handleClick}>Add to Cart</CustomButton>
+      </div>
     </div>
   );
 };

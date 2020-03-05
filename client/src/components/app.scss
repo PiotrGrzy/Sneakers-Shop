@@ -23,3 +23,12 @@ body {
 a {
   text-decoration: none;
 }
+
+input {
+  outline: none;
+  border: 1px solid transparent;
+}
+
+input:focus {
+  border: 1px solid orangered;
+}

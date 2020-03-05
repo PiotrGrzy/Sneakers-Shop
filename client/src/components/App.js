@@ -8,6 +8,7 @@ import Product from '../pages/product/Product';
 import CheckOutPage from '../pages/checkout/CheckOutPage';
 
 import './app.scss';
+import SigninSignupPage from '../pages/sign-signup/SigninSignupPage';
 
 function App() {
   useEffect(() => {
@@ -20,6 +21,7 @@ function App() {
       <Route exact path="/" component={ShopPage} />
       <Route exact path="/sneakers/:id" component={Product} />
       <Route exact path="/checkout" component={CheckOutPage} />
+      <Route exact path="/login" component={SigninSignupPage} />
     </BrowserRouter>
   );
 }
