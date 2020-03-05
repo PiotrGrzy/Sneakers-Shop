@@ -4,12 +4,25 @@ import SneakerLI from '../SneakerLI/SneakerLI';
 import { fetchSearchResults, setLoading } from '../../redux/shop/shop.actions';
 
 import './results-list.scss';
+import Spinner from '../spinner/Spinner';
 
-const ResultsList = ({ searchResults, fetchSearchResults, setLoading }) => {
+const ResultsList = ({
+  searchResults,
+  fetchSearchResults,
+  setLoading,
+  isLoading
+}) => {
   useEffect(() => {
     setLoading();
     fetchSearchResults();
   }, []);
+  if (isLoading)
+    return (
+      <div className="results-list">
+        <Spinner />
+      </div>
+    );
+
   return (
     <div className="results-list">
       {searchResults.map(item => (
@@ -21,7 +34,8 @@ const ResultsList = ({ searchResults, fetchSearchResults, setLoading }) => {
 
 const mapStateToProps = state => {
   return {
-    searchResults: state.shop.searchResults
+    searchResults: state.shop.searchResults,
+    isLoading: state.shop.isLoading
   };
 };
 

@@ -4,6 +4,7 @@ import { getSingleProduct, setLoading } from '../../redux/shop/shop.actions';
 import { addItemToCart } from '../../redux/cart/cart.actions';
 
 import CustomButton from '../../components/customButton/CustomButton';
+import Spinner from '../../components/spinner/Spinner';
 
 import './product.scss';
 
@@ -22,7 +23,11 @@ const Product = ({
   }, []);
 
   if (isLoading || !product) {
-    return <div>Loading product...</div>;
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
   }
 
   const {

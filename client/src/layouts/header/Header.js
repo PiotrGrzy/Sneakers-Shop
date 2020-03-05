@@ -16,10 +16,12 @@ const Header = ({ cartItems, toggleCartView }) => {
 
   return (
     <header className="header">
-      <div className="header__logo">
-        <img src={Logo} alt="Logo" className="header__logo-img" />
-        Sneakers Shop
-      </div>
+      <Link to="/">
+        <div className="header__logo">
+          <img src={Logo} alt="Logo" className="header__logo-img" />
+          Sneakers Shop
+        </div>
+      </Link>
       <nav className="header__nav">
         <ul className="header__nav-list">
           <li className="header__nav-item">

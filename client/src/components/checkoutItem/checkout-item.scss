@@ -18,4 +18,11 @@
   &__quantity {
     color: orangered;
   }
+
+  &__minus,
+  &__plus,
+  &__delete {
+    font-size: 3rem;
+    cursor: pointer;
+  }
 }

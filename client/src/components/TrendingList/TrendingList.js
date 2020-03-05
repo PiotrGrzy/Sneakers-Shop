@@ -2,11 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SneakerLI from '../SneakerLI/SneakerLI';
+import Spinner from '../spinner/Spinner';
 
 import './trending-list.scss';
 
 const TrendingList = ({ isLoading, trendingItems }) => {
-  if (isLoading) return <div>Loading trending items...</div>;
+  if (isLoading)
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
 
   return (
     <>
