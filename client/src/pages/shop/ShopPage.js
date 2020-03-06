@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+
 import ResultsList from '../../components/ResultsList/ResultsList';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TrendingList from '../../components/TrendingList/TrendingList';
@@ -11,6 +12,7 @@ const ShopPage = ({ fetchTrendingNow, setLoading }) => {
   useEffect(() => {
     setLoading();
     fetchTrendingNow();
+
     // eslint-disable-next-line
   }, []);
 

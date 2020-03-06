@@ -6,8 +6,8 @@ import './signin-signup.scss';
 const SigninSignupPage = () => {
   return (
     <div className="signin-signup">
-      <Signin />
       <Signup />
+      <Signin />
     </div>
   );
 };

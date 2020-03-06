@@ -1,3 +1,6 @@
-export const GET_USER = 'GET_USER';
-export const LOGIN_USER = 'LOGIN_USER';
-export const SIGN_UP_USER = 'SIGN_UP_USER';
+export const GET_USER_DATA = 'GET_USER_DATA';
+export const SIGNIN_USER = 'SIGNIN_USER';
+export const SIGNUP_USER = 'SIGNUP_USER';
+export const SIGNOUT_USER = 'SIGNOUT_USER';
+export const INVALID_SIGNIN = 'INVALID_SIGNIN';
+export const INVALID_SIGNUP = 'INVALID_SIGNUP';

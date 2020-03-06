@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toggleCartView } from '../../redux/cart/cart.actions';
-
+import { signOut } from '../../redux/user/user.actions';
 import Cart from '../../components/cart/Cart';
 
 import './header.scss';
 
 import Logo from '../../assets/logo.png';
 
-const Header = ({ cartItems, toggleCartView }) => {
+const Header = ({ cartItems, toggleCartView, isLoggedIn, signOut }) => {
   const handleCartClick = () => {
     toggleCartView();
   };
@@ -42,9 +42,15 @@ const Header = ({ cartItems, toggleCartView }) => {
             </div>
           </li>
           <li className="header__nav-item">
-            <Link className="header__nav-link" to="/login">
-              Login/Logout
-            </Link>
+            {isLoggedIn ? (
+              <button className="header__nav-link" onClick={() => signOut()}>
+                Sign Out
+              </button>
+            ) : (
+              <Link className="header__nav-link" to="/login">
+                Sign In
+              </Link>
+            )}
           </li>
         </ul>
       </nav>
@@ -54,8 +60,9 @@ const Header = ({ cartItems, toggleCartView }) => {
 
 const mapStateToProps = state => {
   return {
-    cartItems: state.cart.items.length
+    cartItems: state.cart.items.length,
+    isLoggedIn: state.user.isLoggedIn
   };
 };
 
-export default connect(mapStateToProps, { toggleCartView })(Header);
+export default connect(mapStateToProps, { toggleCartView, signOut })(Header);

@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 import {
   ADD_ITEM,
   DECREASE_QUANTITY,

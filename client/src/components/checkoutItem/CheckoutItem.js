@@ -14,13 +14,14 @@ const CheckoutItem = ({
   decrementItem,
   removeItemFromCart
 }) => {
-  const { imageMain, model, brand, quantity, price } = item;
+  const { imageMain, model, brand, quantity, price, size } = item;
 
   return (
     <div className="checkout-item">
       <img src={imageMain.url} alt="Sneaker" className="checkout-item__img" />
       <div className="checkout-item__brand">{brand}</div>
       <div className="checkout-item__model">{model}</div>
+      <div className="checkout-item__size">{size}</div>
       <div className="checkout-item__minus" onClick={() => decrementItem(item)}>
         &#10094;
       </div>

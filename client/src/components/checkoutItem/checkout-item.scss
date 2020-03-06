@@ -1,6 +1,6 @@
 .checkout-item {
   display: grid;
-  grid-template-columns: repeat(3, 2fr) repeat(5, 1fr);
+  grid-template-columns: repeat(3, 2fr) repeat(6, 1fr);
   align-items: center;
   justify-items: center;
   font-size: 1.8rem;
@@ -21,7 +21,8 @@
 
   &__minus,
   &__plus,
-  &__delete {
+  &__delete,
+  &__size {
     font-size: 3rem;
     cursor: pointer;
   }

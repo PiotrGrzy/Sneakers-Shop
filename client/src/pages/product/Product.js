@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getSingleProduct, setLoading } from '../../redux/shop/shop.actions';
 import { addItemToCart } from '../../redux/cart/cart.actions';
@@ -17,6 +17,8 @@ const Product = ({
   product,
   addItemToCart
 }) => {
+  const [size, setSize] = useState('');
+
   useEffect(() => {
     setLoading();
     getSingleProduct(match.params.id);
@@ -43,6 +45,7 @@ const Product = ({
   } = product;
 
   const handleClick = () => {
+    product.size = size;
     addItemToCart(product);
   };
   const categoryTags = category.map(item => (
@@ -51,7 +54,7 @@ const Product = ({
     </span>
   ));
 
-  const sizesRadios = sizes.split(' ').map(item => (
+  const sizesRadios = sizes.split(' ').map((item, i) => (
     <label key={item} className="product__sizes-container">
       {item}
       <input
@@ -59,6 +62,7 @@ const Product = ({
         name="sizes"
         type="radio"
         value={item}
+        onChange={() => setSize(item)}
       />
       <span className="product__sizes-checkmark"></span>
     </label>
