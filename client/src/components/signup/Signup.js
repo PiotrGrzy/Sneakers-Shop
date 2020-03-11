@@ -27,7 +27,10 @@ const Signup = ({ signUp, errors, history }) => {
     }
     if (!values.password) {
       errors.password = 'Password is required';
+    } else if (values.password.length < 6) {
+      errors.password = 'Password must min 6 characters long';
     }
+
     if (!values.confirmPassword) {
       errors.confirmPassword = 'Confirm password is required';
     } else if (values.password !== values.confirmPassword) {

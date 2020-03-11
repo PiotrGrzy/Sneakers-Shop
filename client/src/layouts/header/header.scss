@@ -29,8 +29,9 @@
   }
 
   &__nav-link {
+    background-color: transparent;
+    border: none;
     position: relative;
-    text-decoration: none;
     color: orangered;
     text-transform: uppercase;
     font-size: 1.6rem;

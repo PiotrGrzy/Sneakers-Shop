@@ -21,6 +21,13 @@ export const signUp = (values, history) => async dispatch => {
 
     dispatch({ type: SIGNUP_USER, payload: response.data });
     history.goBack();
+    Swal.fire({
+      title: `Welcome,you are signed up :)`,
+      imageUrl: 'https://unsplash.it/400/200',
+      imageWidth: 300,
+      imageHeight: 200,
+      imageAlt: 'Hello'
+    });
   } catch (err) {
     dispatch({ type: INVALID_SIGNUP, payload: err.response.data.msg });
   }
@@ -43,7 +50,7 @@ export const signIn = (values, history) => async dispatch => {
       imageUrl: 'https://unsplash.it/400/200',
       imageWidth: 300,
       imageHeight: 200,
-      imageAlt: 'Custom image'
+      imageAlt: 'Hello'
     });
   } catch (err) {
     console.log(err);
