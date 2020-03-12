@@ -70,7 +70,6 @@
       font-size: 2.4rem;
       color: #ffffff;
     }
-
   }
 
   &__links {
@@ -84,7 +83,7 @@
     font-size: 2.4rem;
     cursor: pointer;
     transform: translateX(2rem);
-    transition: transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 
     &:hover {
       transform: translateX(0);
@@ -127,12 +126,12 @@
   }
 
   /* On mouse-over, add a grey background color */
-  &__sizes-container:hover input~.product__sizes-checkmark {
+  &__sizes-container:hover input ~ .product__sizes-checkmark {
     background-color: #ccc;
   }
 
   /* When the radio button is checked, add a blue background */
-  &__sizes-container input:checked~.product__sizes-checkmark {
+  &__sizes-container input:checked ~ .product__sizes-checkmark {
     background-color: orangered;
   }
 
@@ -144,7 +143,7 @@
   }
 
   /* Show the indicator (dot/circle) when checked */
-  &__sizes-container input:checked~.product__sizes-checkmark:after {
+  &__sizes-container input:checked ~ .product__sizes-checkmark:after {
     display: block;
   }
 

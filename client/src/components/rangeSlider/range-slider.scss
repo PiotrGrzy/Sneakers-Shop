@@ -1,0 +1,47 @@
+.range-slider {
+  width: 40rem;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: orangered;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .input-range {
+    height: 3rem;
+
+    &__label-container {
+      bottom: 1rem;
+    }
+
+    &__label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    &__label &__track {
+      height: 0.5rem;
+      background-color: #ffffff;
+    }
+
+    &__label--max,
+    &__label--min {
+      display: none;
+    }
+    &__track--active {
+      background-color: orangered;
+    }
+
+    &__slider {
+      background-color: orangered;
+      border-color: orangered;
+      height: 1.6rem;
+      width: 1.6rem;
+      margin-top: -1rem;
+    }
+  }
+}

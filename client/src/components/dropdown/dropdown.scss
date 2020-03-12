@@ -1,6 +1,7 @@
 .dd-wrapper {
   position: relative;
   width: 22rem;
+  margin: auto;
 }
 
 .dd-header {
@@ -19,7 +20,7 @@
   }
 }
 .dd-header-title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin: 2px 20px;
   margin-right: 30px;
 }
@@ -34,6 +35,8 @@
   position: absolute;
   width: 100%;
   // border: 1px solid rgb(223, 223, 223);
+  // bottom: 0;
+  // transform: translateY(100%);
   border-top: none;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;

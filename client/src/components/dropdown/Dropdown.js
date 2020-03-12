@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-
+import { connect } from 'react-redux';
+import { setQuery } from '../../redux/search/search.actions';
 import './dropdown.scss';
 
-const Dropdown = ({ title, values }) => {
+const Dropdown = ({ type, title, itemsList, setQuery }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [items, setItems] = useState(values);
+  const [items, setItems] = useState(itemsList);
 
   const toggleSelect = id => {
     const index = items.findIndex(item => item.id === id);
     const updatedItems = [...items];
     updatedItems[index].selected = !items[index].selected;
     setItems(updatedItems);
+    setQuery(
+      type,
+      updatedItems.filter(item => item.selected).map(item => item.name)
+    );
   };
 
   const toggleList = () => {
@@ -45,4 +50,4 @@ const Dropdown = ({ title, values }) => {
   );
 };
 
-export default Dropdown;
+export default connect(null, { setQuery })(Dropdown);

@@ -1,4 +1,4 @@
-export const singleItemQuery = id => `query product {
+export const singleItemQueryString = id => `query product {
     sneaker(where: {id: "${id}"}) {
          id
       price
@@ -19,7 +19,7 @@ export const singleItemQuery = id => `query product {
     }
 }`;
 
-export const trendingQuery = `query trending {
+export const trendingQueryString = `query trending {
     sneakers(where: {trending: true}) {
       id
       price
@@ -41,7 +41,7 @@ export const trendingQuery = `query trending {
   }
   `;
 
-export const searchQuery = () => `query sneakers {
+export const searchQueryString = () => `query sneakers {
     sneakers {
          id
       price

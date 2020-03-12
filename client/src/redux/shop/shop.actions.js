@@ -6,7 +6,11 @@ import {
 } from './shop.types';
 import axios from 'axios';
 
-import { singleItemQuery, trendingQuery, searchQuery } from './cmsQueries.js';
+import {
+  singleItemQueryString,
+  trendingQueryString,
+  searchQueryString
+} from './cmsQueries.js';
 
 const CMS_URI =
   'https://api-euwest.graphcms.com/v1/ck73ktvqn0h2f01dvaqfe38u7/master';
@@ -15,8 +19,9 @@ export const setLoading = () => {
   return { type: SET_LOADING };
 };
 
-export const fetchSearchResults = () => async dispatch => {
-  const query = searchQuery();
+export const fetchSearchResults = searchOptions => async dispatch => {
+  console.log(searchOptions);
+  const query = searchQueryString();
   try {
     const response = await axios({
       url: CMS_URI,
@@ -29,14 +34,14 @@ export const fetchSearchResults = () => async dispatch => {
       type: FETCH_SEARCH_RESULTS,
       payload: response.data.data.sneakers
     });
-    console.log(response);
+    // console.log(response);
   } catch (err) {
     console.log(err);
   }
 };
 
 export const fetchTrendingNow = () => async dispatch => {
-  const query = trendingQuery;
+  const query = trendingQueryString;
   try {
     const response = await axios({
       url: CMS_URI,
@@ -49,14 +54,14 @@ export const fetchTrendingNow = () => async dispatch => {
       type: FETCH_TRENDING_NOW,
       payload: response.data.data.sneakers
     });
-    console.log(response);
+    //    console.log(response);
   } catch (err) {
     console.log(err);
   }
 };
 
 export const getSingleProduct = id => async dispatch => {
-  const query = singleItemQuery(id);
+  const query = singleItemQueryString(id);
 
   try {
     const response = await axios({
