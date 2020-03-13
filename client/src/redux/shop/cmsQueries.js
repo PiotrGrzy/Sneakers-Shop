@@ -61,3 +61,35 @@ export const searchQueryString = () => `query sneakers {
       trending
     }
 }`;
+
+`query sneakers($where: SneakerWhereInput) {
+  sneakers(where: $where) {
+    id
+    price
+    gender
+    category
+    imageMain {
+      id
+      url
+    }
+    model
+    imageSecondary {
+      url
+      id
+    }
+    brand
+    sizes
+    trending
+  }
+}`;
+
+const queryVars = {
+  where: {
+    AND: [
+      { price_gte: 100 },
+      { price_lte: 150 },
+      { brand_in: ['Adidas', 'Nike'] },
+      { gender_in: ['Men'] }
+    ]
+  }
+};
