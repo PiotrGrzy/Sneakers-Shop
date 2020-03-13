@@ -20,8 +20,7 @@ export const setLoading = () => {
 };
 
 export const fetchSearchResults = searchOptions => async dispatch => {
-  console.log(searchOptions);
-  const query = searchQueryString();
+  const query = searchQueryString(searchOptions);
   try {
     const response = await axios({
       url: CMS_URI,
@@ -41,7 +40,7 @@ export const fetchSearchResults = searchOptions => async dispatch => {
 };
 
 export const fetchTrendingNow = () => async dispatch => {
-  const query = trendingQueryString;
+  const query = trendingQueryString();
   try {
     const response = await axios({
       url: CMS_URI,

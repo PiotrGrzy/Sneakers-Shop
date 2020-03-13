@@ -5,8 +5,10 @@ import { fetchSearchResults, setLoading } from '../../redux/shop/shop.actions';
 
 import './results-list.scss';
 import Spinner from '../spinner/Spinner';
+import filterCategories from './filterCategories';
 
 const ResultsList = ({
+  searchQuery,
   searchResults,
   fetchSearchResults,
   setLoading,
@@ -14,8 +16,9 @@ const ResultsList = ({
 }) => {
   useEffect(() => {
     setLoading();
-    fetchSearchResults();
+    fetchSearchResults(searchQuery);
   }, []);
+
   if (isLoading)
     return (
       <div className="results-list">
@@ -25,9 +28,15 @@ const ResultsList = ({
 
   return (
     <div className="results-list">
-      {searchResults.map(item => (
-        <SneakerLI key={item.id} sneaker={item} />
-      ))}
+      {searchResults.length < 1 ? (
+        <p className="results-list__noresults">
+          No results with given criteria
+        </p>
+      ) : (
+        filterCategories(searchResults, searchQuery.category).map(item => (
+          <SneakerLI key={item.id} sneaker={item} />
+        ))
+      )}
     </div>
   );
 };
@@ -35,6 +44,7 @@ const ResultsList = ({
 const mapStateToProps = state => {
   return {
     searchResults: state.shop.searchResults,
+    searchQuery: state.search,
     isLoading: state.shop.isLoading
   };
 };

@@ -9,4 +9,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, 30rem);
   gap: 1rem;
+
+  &__noresults {
+    color: orangered;
+    font-size: 1.6rem;
+  }
 }
