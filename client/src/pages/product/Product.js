@@ -49,7 +49,7 @@ const Product = ({
   const handleClick = () => {
     if (!size) {
       Swal.fire({
-        title: `Pick up your size before ordering`,
+        title: `Pick up your size before adding to cart`,
         icon: 'info'
       });
       return;

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CheckoutItem from '../../components/checkoutItem/CheckoutItem';
@@ -22,7 +22,10 @@ const CheckOutPage = ({ cartItems, history }) => {
         <p className="product__link-back" onClick={() => history.push('/')}>
           <i className="lni lni-arrow-left"></i> Continue Shopping
         </p>
-        <CustomButton>Order</CustomButton>
+        <Link to="/order">
+          <CustomButton>Order</CustomButton>
+        </Link>
+
         <div className="checkout__total">Total: {totalPrice} $</div>
       </div>
     </div>
