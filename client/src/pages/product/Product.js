@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
 import { getSingleProduct, setLoading } from '../../redux/shop/shop.actions';
 import { addItemToCart } from '../../redux/cart/cart.actions';
-
 import CustomButton from '../../components/customButton/CustomButton';
 import Spinner from '../../components/spinner/Spinner';
-
 import './product.scss';
+
+const _ = require('lodash');
 
 const Product = ({
   history,
@@ -22,6 +23,7 @@ const Product = ({
   useEffect(() => {
     setLoading();
     getSingleProduct(match.params.id);
+
     // eslint-disable-next-line
   }, []);
 
@@ -45,8 +47,27 @@ const Product = ({
   } = product;
 
   const handleClick = () => {
+    if (!size) {
+      Swal.fire({
+        title: `Pick up your size before ordering`,
+        icon: 'info'
+      });
+      return;
+    }
     product.size = size;
-    addItemToCart(product);
+    const newProduct = _.cloneDeep(product);
+    newProduct.id = `${product.id}_${product.size}`;
+    addItemToCart(newProduct);
+    history.push('/');
+    Swal.fire({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      icon: 'success',
+      title: 'New Item added to Cart'
+    });
   };
   const categoryTags = category.map(item => (
     <span className="product__category" key={item}>

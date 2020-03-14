@@ -32,10 +32,12 @@ const ResultsList = ({
         <p className="results-list__noresults">
           No results with given criteria
         </p>
-      ) : (
+      ) : searchQuery.category.length > 0 ? (
         filterCategories(searchResults, searchQuery.category).map(item => (
           <SneakerLI key={item.id} sneaker={item} />
         ))
+      ) : (
+        searchResults.map(item => <SneakerLI key={item.id} sneaker={item} />)
       )}
     </div>
   );

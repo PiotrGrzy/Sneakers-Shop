@@ -1,9 +1,25 @@
 .search {
+  background-color: rgba(0, 0, 0, 0.6);
+
   &__form {
+    padding: 2rem;
     margin-top: 2rem;
     display: flex;
     justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 2rem;
+  }
+
+  &__tags {
+    display: flex;
+    padding: 0 0 2rem 2rem;
+  }
+
+  &__tag {
+    padding: .5rem;
+    font-size: 1.2rem;
+    display: block;
+    border: 1px solid orangered;
+    color: orangered;
+    border-radius: 5px;
+    margin: 0 0.5rem;
   }
 }

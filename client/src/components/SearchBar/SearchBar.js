@@ -9,6 +9,9 @@ import { brands, genders, categories } from './query-data';
 import './search-bar.scss';
 
 const SearchBar = ({ searchQuery, fetchSearchResults, setLoading }) => {
+  const { brand, gender, category } = searchQuery;
+  const searchOptions = [...brand, ...gender, ...category];
+
   return (
     <div className="search">
       <form className="search__form">
@@ -27,6 +30,13 @@ const SearchBar = ({ searchQuery, fetchSearchResults, setLoading }) => {
           Search
         </CustomButton>
       </form>
+      <div className="search__tags">
+        {searchOptions.map(option => (
+          <span className="search__tag" key={option}>
+            #{option}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
