@@ -10,6 +10,11 @@
   font-family: inherit;
   display: block;
 
+  @media (max-width:768px) {
+    min-width: 18rem;
+    padding: .5rem;
+  }
+
 
   &:hover {
     background-color: rgb(156, 42, 0);

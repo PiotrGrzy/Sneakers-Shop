@@ -5,7 +5,17 @@
     padding: 2rem;
     margin-top: 2rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+
+    @media (max-width:999px) {
+      flex-direction: column;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__tags {

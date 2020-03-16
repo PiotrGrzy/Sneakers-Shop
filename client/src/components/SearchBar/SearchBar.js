@@ -12,23 +12,26 @@ const SearchBar = ({ searchQuery, fetchSearchResults, setLoading }) => {
   const { brand, gender, category } = searchQuery;
   const searchOptions = [...brand, ...gender, ...category];
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    setLoading();
+    fetchSearchResults(searchQuery);
+  };
+
   return (
     <div className="search">
       <form className="search__form">
-        <Dropdown type="brand" title="Brand" itemsList={brands} />
-        <Dropdown type="gender" title="Gender" itemsList={genders} />
-        <Dropdown type="category" title="Category" itemsList={categories} />
-        <RangeSlider />
-        <CustomButton
-          type="submit"
-          onClick={e => {
-            e.preventDefault();
-            setLoading();
-            fetchSearchResults(searchQuery);
-          }}
-        >
-          Search
-        </CustomButton>
+        <div className="search__wrapper">
+          <Dropdown type="brand" title="Brand" itemsList={brands} />
+          <Dropdown type="gender" title="Gender" itemsList={genders} />
+          <Dropdown type="category" title="Category" itemsList={categories} />
+        </div>
+        <div className="search__wrapper">
+          <RangeSlider />
+          <CustomButton type="submit" onClick={handleSubmit}>
+            Search
+          </CustomButton>
+        </div>
       </form>
       <div className="search__tags">
         {searchOptions.map(option => (

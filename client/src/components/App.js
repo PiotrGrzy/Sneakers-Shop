@@ -13,7 +13,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-
       <Route exact path="/" component={ShopPage} />
       <Route exact path="/sneakers/:id" component={Product} />
       <Route exact path="/checkout" component={CheckOutPage} />
