@@ -19,7 +19,7 @@ const Header = ({ cartItems, toggleCartView, isLoggedIn, signOut }) => {
       <Link to="/">
         <div className="header__logo">
           <img src={Logo} alt="Logo" className="header__logo-img" />
-          Sneakers Shop
+          <span className="header__logo-name">Sneakers Shop</span>
         </div>
       </Link>
       <nav className="header__nav">

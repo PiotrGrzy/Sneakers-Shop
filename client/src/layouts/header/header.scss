@@ -4,12 +4,22 @@
   justify-content: space-around;
   align-items: center;
 
+  @media (max-width: 499px) {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+  }
+
   &__logo {
     font-size: 2.6rem;
     padding: 1rem;
     color: orangered;
     display: flex;
     align-items: center;
+    @media (max-width: 1290px) {
+      font-size: 2rem;
+    }
   }
 
   &__logo-img {
@@ -17,6 +27,16 @@
     width: 4rem;
     height: 4rem;
     margin-right: 1rem;
+    @media (max-width: 1290px) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__logo-name {
+    @media (max-width: 499px) {
+      display: none;
+    }
   }
 
   &__nav-list {
@@ -36,6 +56,9 @@
     text-transform: uppercase;
     font-size: 1.6rem;
     cursor: pointer;
+    @media (max-width: 499px) {
+      font-size: 1.2rem;
+    }
   }
 
   &__cart-quantity {

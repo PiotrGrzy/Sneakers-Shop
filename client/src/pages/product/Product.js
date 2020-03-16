@@ -134,7 +134,7 @@ const Product = ({
 
       <div className="product__sizes">
         <p>Pick up your size:</p>
-        {sizesRadios}
+        <div className="product__sizes-radios">{sizesRadios}</div>
       </div>
       <div className="product__links">
         <p className="product__link-back" onClick={() => history.push('/')}>

@@ -9,6 +9,10 @@
     width: 20rem;
     padding: 1rem;
     margin: 4rem 0;
+
+    @media (max-width: 499px) {
+      margin: 2rem 0;
+    }
   }
 
   &__bottom-wrapper {
@@ -16,5 +20,14 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    @media (max-width: 499px) {
+      flex-direction: column-reverse;
+      padding-bottom: 2rem;
+    }
+
+    .product__link-back {
+      margin: 2rem 0;
+      font-size: 2rem;
+    }
   }
 }

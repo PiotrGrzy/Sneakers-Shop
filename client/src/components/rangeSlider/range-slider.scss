@@ -5,6 +5,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1290px) {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
 
   &__title {
     color: orangered;

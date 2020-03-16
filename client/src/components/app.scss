@@ -10,8 +10,9 @@ html {
   font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
 
-  @media (max-width:768px) {
-    //  font-size: 50%;
+  @media (max-width: 499px) {
+    margin-top: 5rem;
+    font-size: 50%;
   }
 }
 

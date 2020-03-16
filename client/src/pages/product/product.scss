@@ -17,6 +17,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 499px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__brand {
@@ -70,6 +74,15 @@
       font-size: 2.4rem;
       color: #ffffff;
     }
+    @media (max-width: 499px) {
+      flex-direction: column;
+    }
+  }
+
+  &__sizes-radios {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &__links {
@@ -98,7 +111,7 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 2.2rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -119,19 +132,23 @@
     position: absolute;
     top: 0;
     left: 0.5rem;
-    height: 25px;
-    width: 25px;
+    height: 2.5rem;
+    width: 2.5rem;
     background-color: #eee;
     border-radius: 50%;
+    @media (max-width: 499px) {
+      // height: 25px;
+      // width: 25px;
+    }
   }
 
   /* On mouse-over, add a grey background color */
-  &__sizes-container:hover input~.product__sizes-checkmark {
+  &__sizes-container:hover input ~ .product__sizes-checkmark {
     background-color: #ccc;
   }
 
   /* When the radio button is checked, add a blue background */
-  &__sizes-container input:checked~.product__sizes-checkmark {
+  &__sizes-container input:checked ~ .product__sizes-checkmark {
     background-color: orangered;
   }
 
@@ -143,16 +160,16 @@
   }
 
   /* Show the indicator (dot/circle) when checked */
-  &__sizes-container input:checked~.product__sizes-checkmark:after {
+  &__sizes-container input:checked ~ .product__sizes-checkmark:after {
     display: block;
   }
 
   /* Style the indicator (dot/circle) */
   &__sizes-container .product__sizes-checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
+    top: 0.9rem;
+    left: 0.9rem;
+    width: 0.8rem;
+    height: 0.8rem;
     border-radius: 50%;
     background: white;
   }
@@ -168,10 +185,8 @@
 
 .swal2-popup {
   background-color: rgba(0, 0, 0, 0.8);
-
 }
 
 .swal2-title {
   color: #ffffff;
-
 }

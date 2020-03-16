@@ -1,8 +1,11 @@
 .dd-wrapper {
   position: relative;
   width: 22rem;
-
   margin: auto 0.5rem;
+
+  @media (max-width: 499px) {
+    margin: 0.5rem;
+  }
 }
 
 .dd-header {
@@ -17,13 +20,13 @@
   background-color: #333;
 
   span {
-    margin-right: 20px;
+    margin-right: 2rem;
   }
 }
 .dd-header-title {
   font-size: 1.4rem;
   margin: 2px 20px;
-  margin-right: 30px;
+  margin-right: 2rem;
 }
 
 .angle-down {
@@ -35,9 +38,6 @@
   z-index: 10;
   position: absolute;
   width: 100%;
-  // border: 1px solid rgb(223, 223, 223);
-  // bottom: 0;
-  // transform: translateY(100%);
   border-top: none;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
