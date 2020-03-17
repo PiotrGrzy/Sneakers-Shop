@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { selectTrendingNowItems } from '../../redux/shop/shop.selectors';
 import SneakerLI from '../SneakerLI/SneakerLI';
 import Spinner from '../spinner/Spinner';
 
@@ -31,7 +31,7 @@ const TrendingList = ({ isLoading, trendingItems }) => {
 const mapStateToProps = state => {
   return {
     isLoading: state.shop.isLoading,
-    trendingItems: state.shop.trending
+    trendingItems: selectTrendingNowItems(state)
   };
 };
 

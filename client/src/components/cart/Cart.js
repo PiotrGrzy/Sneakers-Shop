@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CartItem from '../cartItem/CartItem';
 import CustomButton from '../customButton/CustomButton';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 import './cart.scss';
 
@@ -24,7 +25,7 @@ const Cart = ({ cartItems, isOpen }) => {
 };
 
 const mapStateToProps = state => {
-  return { cartItems: state.cart.items, isOpen: state.cart.isOpen };
+  return { cartItems: selectCartItems(state), isOpen: state.cart.isOpen };
 };
 
 export default connect(mapStateToProps)(Cart);

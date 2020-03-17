@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 import CheckoutItem from '../../components/checkoutItem/CheckoutItem';
 import CustomButton from '../../components/customButton/CustomButton';
 
@@ -33,7 +33,7 @@ const CheckOutPage = ({ cartItems, history }) => {
 };
 
 const mapStateToProps = state => {
-  return { cartItems: state.cart.items };
+  return { cartItems: selectCartItems(state) };
 };
 
 export default connect(mapStateToProps)(CheckOutPage);

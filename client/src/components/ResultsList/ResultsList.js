@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import SneakerLI from '../SneakerLI/SneakerLI';
+import { selectSearchResults } from '../../redux/shop/shop.selectors';
 import { fetchSearchResults, setLoading } from '../../redux/shop/shop.actions';
 
 import './results-list.scss';
@@ -45,7 +47,7 @@ const ResultsList = ({
 
 const mapStateToProps = state => {
   return {
-    searchResults: state.shop.searchResults,
+    searchResults: selectSearchResults(state),
     searchQuery: state.search,
     isLoading: state.shop.isLoading
   };
