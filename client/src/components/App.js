@@ -6,8 +6,10 @@ import Product from '../pages/product/Product';
 import CheckOutPage from '../pages/checkout/CheckOutPage';
 import Order from '../pages/order/Order';
 import ProtectedRoute from './protectedRoute/ProtectedRoute';
-import './app.scss';
 import SigninSignupPage from '../pages/sign-signup/SigninSignupPage';
+import Footer from '../layouts/footer/Footer';
+
+import './app.scss';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <Route exact path="/checkout" component={CheckOutPage} />
       <ProtectedRoute path="/order" component={Order} />
       <Route exact path="/login" component={SigninSignupPage} />
+      <Footer />
     </BrowserRouter>
   );
 }
