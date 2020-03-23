@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import CustomButton from '../../components/customButton/CustomButton';
 import OrderItem from '../../components/orderItem/OrderItem';
+import PayPal from '../../components/paypal/PayPal';
 
 import './order.scss';
 
 const Order = ({ user, cartItems }) => {
   const {
+    id,
     email,
     firstName,
     lastName,
@@ -40,9 +42,18 @@ const Order = ({ user, cartItems }) => {
     return errors;
   };
 
+  const totalPrice = cartItems.reduce(
+    (total, item) => (total += item.price * item.quantity),
+    0
+  );
+
+  const orderDescription =
+    cartItems.length > 1
+      ? `You are buying ${cartItems.length} items.`
+      : `You are buying ${cartItems[0].brand} ${cartItems[0].model}`;
+
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
-    setSubmitting(false);
   };
   return (
     <div className="order">
@@ -108,10 +119,6 @@ const Order = ({ user, cartItems }) => {
                 component="div"
                 className="signup__warning"
               />
-
-              <CustomButton type="submit" disabled={isSubmitting}>
-                Sign Up
-              </CustomButton>
             </Form>
           )}
         </Formik>
@@ -121,6 +128,14 @@ const Order = ({ user, cartItems }) => {
         {cartItems.map(item => (
           <OrderItem key={item.id} item={item} />
         ))}
+        <PayPal
+          order={{
+            price: totalPrice,
+            description: orderDescription,
+            name: 'Nike Sneakers Super cool'
+          }}
+          user={(id, email, firstName, lastName, city, street, postalCode)}
+        />
       </div>
     </div>
   );
