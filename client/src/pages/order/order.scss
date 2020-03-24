@@ -3,4 +3,9 @@
     margin: 4rem;
     padding: 4rem;
     display: flex;
+
+    &__total {
+        color: orangered;
+        font-size: 1.6rem;
+    }
 }

@@ -9,7 +9,7 @@ const OrderItem = ({ item }) => {
       <span className="order-item__brand">{brand}</span>
       <span className="order-item__model">{model}</span>
       <span className="order-item__quantity">{quantity}</span>
-      <span className="order-item__price">{price}</span>
+      <span className="order-item__price">{price} $</span>
     </div>
   );
 };

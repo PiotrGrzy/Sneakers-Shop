@@ -125,14 +125,21 @@ const Order = ({ user, cartItems }) => {
       </div>
       <div className="order__cart-data">
         <h3 className="signup__heading">Your order:</h3>
+        <div className="order-item order-item--titles">
+          <span className="order-item__brand">Brand</span>
+          <span className="order-item__model">Model</span>
+          <span className="order-item__quantity">Quantity</span>
+          <span className="order-item__price">Price</span>
+        </div>
         {cartItems.map(item => (
           <OrderItem key={item.id} item={item} />
         ))}
+        <p className="order__total">Total price: {totalPrice} $</p>
         <PayPal
           order={{
             price: totalPrice,
-            description: orderDescription,
-            name: 'Nike Sneakers Super cool'
+            description: 'SneakerShop Order',
+            name: orderDescription
           }}
           user={(id, email, firstName, lastName, city, street, postalCode)}
         />
