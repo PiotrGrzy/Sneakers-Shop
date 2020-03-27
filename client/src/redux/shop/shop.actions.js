@@ -12,7 +12,7 @@ import {
   searchQueryString
 } from './cmsQueries.js';
 
-const CMS_URI =
+export const CMS_URI =
   'https://api-euwest.graphcms.com/v1/ck73ktvqn0h2f01dvaqfe38u7/master';
 
 export const setLoading = () => {
@@ -33,7 +33,6 @@ export const fetchSearchResults = searchOptions => async dispatch => {
       type: FETCH_SEARCH_RESULTS,
       payload: response.data.data.sneakers
     });
-    // console.log(response);
   } catch (err) {
     console.log(err);
   }

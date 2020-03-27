@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import './paypal.scss';
+
 const PayPal = ({ order, user }) => {
   const [paidFor, setPaidFor] = useState(false);
   const [error, setError] = useState(null);
@@ -54,9 +56,9 @@ const PayPal = ({ order, user }) => {
   }
 
   return (
-    <div>
+    <div className="paypal">
       {error && <div>Uh oh, an error occurred! {error.message}</div>}
-      <h1>You bought Some shit for ${order.price}</h1>
+      <h2 className="paypal__heading">Choose your payment method: </h2>
       <div ref={paypalRef} />
     </div>
   );

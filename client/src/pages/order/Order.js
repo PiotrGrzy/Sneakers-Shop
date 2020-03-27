@@ -128,15 +128,15 @@ const Order = ({ user, cartItems }) => {
         {cartItems.map(item => (
           <OrderItem key={item.id} item={item} />
         ))}
-        <PayPal
-          order={{
-            price: totalPrice,
-            description: orderDescription,
-            name: 'Nike Sneakers Super cool'
-          }}
-          user={(id, email, firstName, lastName, city, street, postalCode)}
-        />
       </div>
+      <PayPal
+        order={{
+          price: totalPrice,
+          description: orderDescription,
+          name: 'Nike Sneakers Super cool'
+        }}
+        user={(id, email, firstName, lastName, city, street, postalCode)}
+      />
     </div>
   );
 };
