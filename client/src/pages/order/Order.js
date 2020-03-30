@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import CustomButton from '../../components/customButton/CustomButton';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 import OrderItem from '../../components/orderItem/OrderItem';
 import PayPal from '../../components/paypal/PayPal';
 
 import './order.scss';
 
-const Order = ({ user, cartItems }) => {
+const Order = ({ user, cartItems, history }) => {
   const {
     id,
     email,
@@ -55,6 +56,7 @@ const Order = ({ user, cartItems }) => {
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
   };
+
   return (
     <div className="order">
       <div className="order__user-data">
@@ -122,12 +124,16 @@ const Order = ({ user, cartItems }) => {
             </Form>
           )}
         </Formik>
+        <p className="order__cancel" onClick={() => history.push('/')}>
+          <i className="lni lni-arrow-left"></i> Cancel
+        </p>
       </div>
       <div className="order__cart-data">
-        <h3 className="signup__heading">Your order:</h3>
+        <h3 className="order__heading">Your order:</h3>
         {cartItems.map(item => (
           <OrderItem key={item.id} item={item} />
         ))}
+        <p className="order__total-price">Total price: {totalPrice} $</p>
       </div>
       <PayPal
         order={{
@@ -144,7 +150,7 @@ const Order = ({ user, cartItems }) => {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    cartItems: state.cart.items
+    cartItems: selectCartItems(state)
   };
 };
 

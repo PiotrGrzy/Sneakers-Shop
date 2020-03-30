@@ -22,7 +22,7 @@ const CheckOutPage = ({ cartItems, history }) => {
         <p className="product__link-back" onClick={() => history.push('/')}>
           <i className="lni lni-arrow-left"></i> Continue Shopping
         </p>
-        <Link to="/order">
+        <Link to={cartItems.length < 1 ? '/' : '/order'}>
           <CustomButton>Order</CustomButton>
         </Link>
 
