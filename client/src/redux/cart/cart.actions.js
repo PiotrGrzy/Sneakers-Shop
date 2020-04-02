@@ -2,7 +2,8 @@ import {
   ADD_ITEM,
   DECREASE_QUANTITY,
   REMOVE_ITEM,
-  TOGGLE_CART_VIEW
+  TOGGLE_CART_VIEW,
+  CLEAR_FULL_CART
 } from './cart.types';
 
 export const addItemToCart = item => {
@@ -22,4 +23,10 @@ export const removeItemFromCart = item => {
 
 export const toggleCartView = () => {
   return { type: TOGGLE_CART_VIEW };
+};
+
+export const clearFullCart = () => {
+  return {
+    type: CLEAR_FULL_CART
+  };
 };

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot renders 1`] = `
+<div
+  className="order-item"
+>
+  <span
+    className="order-item__brand"
+  >
+    Adidas
+  </span>
+  <span
+    className="order-item__model"
+  >
+    One
+  </span>
+  <span
+    className="order-item__quantity"
+  >
+    2
+  </span>
+  <span
+    className="order-item__price"
+  >
+    50
+     $
+  </span>
+</div>
+`;

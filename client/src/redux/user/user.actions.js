@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 import {
   SIGNUP_USER,
   SIGNIN_USER,
-  GET_USER_DATA,
   SIGNOUT_USER,
   INVALID_SIGNIN,
   INVALID_SIGNUP
@@ -53,7 +52,6 @@ export const signIn = (values, history) => async dispatch => {
       imageAlt: 'Hello'
     });
   } catch (err) {
-    console.log(err);
     if (err.response) {
       dispatch({ type: INVALID_SIGNIN, payload: err.response.data.msg });
     }

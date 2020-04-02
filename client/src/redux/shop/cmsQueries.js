@@ -1,8 +1,4 @@
-import {
-  brands,
-  genders,
-  categories
-} from '../../components/SearchBar/query-data';
+import { brands, genders } from '../../components/searchbar/query-data';
 
 export const singleItemQueryString = id => `query product {
     sneaker(where: {id: "${id}"}) {

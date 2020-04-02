@@ -1,10 +1,12 @@
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 import {
   FETCH_TRENDING_NOW,
   SET_LOADING,
   GET_SINGLE_PRODUCT,
   FETCH_SEARCH_RESULTS
 } from './shop.types';
-import axios from 'axios';
 
 import {
   singleItemQueryString,
@@ -35,6 +37,9 @@ export const fetchSearchResults = searchOptions => async dispatch => {
     });
   } catch (err) {
     console.log(err);
+    Swal.fire({
+      title: `Something went wrong with data import `
+    });
   }
 };
 
@@ -52,9 +57,11 @@ export const fetchTrendingNow = () => async dispatch => {
       type: FETCH_TRENDING_NOW,
       payload: response.data.data.sneakers
     });
-    //    console.log(response);
   } catch (err) {
     console.log(err);
+    Swal.fire({
+      title: `Something went wrong with data import `
+    });
   }
 };
 
@@ -73,8 +80,10 @@ export const getSingleProduct = id => async dispatch => {
       type: GET_SINGLE_PRODUCT,
       payload: response.data.data.sneaker
     });
-    console.log(response.data.data.sneaker);
   } catch (err) {
     console.log(err);
+    Swal.fire({
+      title: `Something went wrong with data import `
+    });
   }
 };

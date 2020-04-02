@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import CustomButton from '../../components/customButton/CustomButton';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import OrderItem from '../../components/orderItem/OrderItem';
 import PayPal from '../../components/paypal/PayPal';
