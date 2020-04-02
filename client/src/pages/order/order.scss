@@ -2,9 +2,13 @@
   background-color: rgba(0, 0, 0, 0.6);
   margin: 4rem;
   padding: 4rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: center;
+  @media (max-width: 999px) {
+    margin: 1rem;
+    padding: 1rem;
+  }
 
   &__heading {
     font-size: 2.4rem;
@@ -12,11 +16,23 @@
     margin: 2rem auto;
   }
 
+  &__user-data {
+    @media (max-width: 699px) {
+      grid-column: 1/-1;
+    }
+  }
+
   &__cart-data {
-    flex: 2;
+    grid-column: 2/6;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    @media (max-width: 999px) {
+      grid-column: 2/7;
+    }
+    @media (max-width: 699px) {
+      grid-column: 1/-1;
+    }
   }
 
   &__total-price {
@@ -26,6 +42,13 @@
     margin-right: 4rem;
     font-size: 1.6rem;
     text-decoration: underline;
+  }
+
+  &__paypal-box {
+    @media (max-width: 699px) {
+      grid-column: 1/-1;
+      padding: 2rem;
+    }
   }
 
   &__cancel {

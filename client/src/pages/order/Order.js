@@ -123,9 +123,6 @@ const Order = ({ user, cartItems, history }) => {
             </Form>
           )}
         </Formik>
-        <p className="order__cancel" onClick={() => history.push('/')}>
-          <i className="lni lni-arrow-left"></i> Cancel
-        </p>
       </div>
       <div className="order__cart-data">
         <h3 className="order__heading">Your order:</h3>
@@ -134,14 +131,19 @@ const Order = ({ user, cartItems, history }) => {
         ))}
         <p className="order__total-price">Total price: {totalPrice} $</p>
       </div>
-      <PayPal
-        order={{
-          price: totalPrice,
-          description: orderDescription,
-          name: 'Nike Sneakers Super cool'
-        }}
-        user={(id, email, firstName, lastName, city, street, postalCode)}
-      />
+      <div className="order__paypal-box">
+        <PayPal
+          order={{
+            price: totalPrice,
+            description: orderDescription,
+            name: 'Nike Sneakers Super cool'
+          }}
+          user={(id, email, firstName, lastName, city, street, postalCode)}
+        />
+        <p className="order__cancel" onClick={() => history.push('/')}>
+          <i className="lni lni-arrow-left"></i> Cancel
+        </p>
+      </div>
     </div>
   );
 };
