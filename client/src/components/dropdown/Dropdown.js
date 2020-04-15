@@ -7,18 +7,25 @@ const Dropdown = ({ type, title, itemsList, setQuery }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [items, setItems] = useState(itemsList);
 
-  const toggleSelect = id => {
-    const index = items.findIndex(item => item.id === id);
+  const toggleSelect = (id) => {
+    // selects listitem by its id
+    // finds index
+    const index = items.findIndex((item) => item.id === id);
+    // clone list
     const updatedItems = [...items];
+    // updates item to selected or unselected
     updatedItems[index].selected = !items[index].selected;
+    // update local state of selected items
     setItems(updatedItems);
+    // update query with new selected items names
     setQuery(
       type,
-      updatedItems.filter(item => item.selected).map(item => item.name)
+      updatedItems.filter((item) => item.selected).map((item) => item.name)
     );
   };
 
   const toggleList = () => {
+    // reveal dropdowm
     setIsOpen(!isOpen);
   };
 

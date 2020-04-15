@@ -14,7 +14,7 @@ const ResultsList = ({
   searchResults,
   fetchSearchResults,
   setLoading,
-  isLoading
+  isLoading,
 }) => {
   useEffect(() => {
     setLoading();
@@ -35,21 +35,22 @@ const ResultsList = ({
           No results with given criteria
         </p>
       ) : searchQuery.category.length > 0 ? (
-        filterCategories(searchResults, searchQuery.category).map(item => (
+        // instant filtering on front
+        filterCategories(searchResults, searchQuery.category).map((item) => (
           <SneakerLI key={item.id} sneaker={item} />
         ))
       ) : (
-        searchResults.map(item => <SneakerLI key={item.id} sneaker={item} />)
+        searchResults.map((item) => <SneakerLI key={item.id} sneaker={item} />)
       )}
     </div>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     searchResults: selectSearchResults(state),
     searchQuery: state.search,
-    isLoading: state.shop.isLoading
+    isLoading: state.shop.isLoading,
   };
 };
 

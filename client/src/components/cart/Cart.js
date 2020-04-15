@@ -7,14 +7,14 @@ import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 import './cart.scss';
 
-const Cart = ({ cartItems, isOpen }) => {
+export const Cart = ({ cartItems, isOpen }) => {
   if (cartItems.length === 0)
     return (
       <div className={isOpen ? 'cart' : 'cart hidden'}>Cart is empty...</div>
     );
   return (
     <div className={isOpen ? 'cart' : 'cart hidden'}>
-      {cartItems.map(item => (
+      {cartItems.map((item) => (
         <CartItem key={item.id} item={item} />
       ))}
       <Link to="/checkout">
@@ -24,7 +24,7 @@ const Cart = ({ cartItems, isOpen }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { cartItems: selectCartItems(state), isOpen: state.cart.isOpen };
 };
 
