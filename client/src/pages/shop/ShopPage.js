@@ -3,14 +3,25 @@ import { connect } from 'react-redux';
 import ResultsList from '../../components/ResultsList/ResultsList';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TrendingList from '../../components/TrendingList/TrendingList';
-import { fetchTrendingNow, setLoading } from '../../redux/shop/shop.actions';
+import {
+  fetchTrendingNow,
+  setLoading,
+  fetchSearchResults,
+} from '../../redux/shop/shop.actions';
 
 import './shop.scss';
 
-const ShopPage = ({ fetchTrendingNow, setLoading }) => {
+const ShopPage = ({
+  fetchTrendingNow,
+  setLoading,
+  fetchSearchResults,
+  searchQuery,
+}) => {
   useEffect(() => {
     setLoading();
     fetchTrendingNow();
+    setLoading();
+    fetchSearchResults(searchQuery);
 
     // eslint-disable-next-line
   }, []);
@@ -24,4 +35,14 @@ const ShopPage = ({ fetchTrendingNow, setLoading }) => {
   );
 };
 
-export default connect(null, { fetchTrendingNow, setLoading })(ShopPage);
+const mapStateToProps = (state) => {
+  return {
+    searchQuery: state.search,
+  };
+};
+
+export default connect(mapStateToProps, {
+  fetchTrendingNow,
+  setLoading,
+  fetchSearchResults,
+})(ShopPage);

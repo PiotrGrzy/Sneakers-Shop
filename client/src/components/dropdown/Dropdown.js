@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { setQuery } from '../../redux/search/search.actions';
 import './dropdown.scss';
 
-const Dropdown = ({ type, title, itemsList, setQuery }) => {
+export const Dropdown = ({ type, title, itemsList, setQuery }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [items, setItems] = useState(itemsList);
+  const [items, setItems] = useState(itemsList || []);
 
   const toggleSelect = (id) => {
     // selects listitem by its id
@@ -25,7 +25,7 @@ const Dropdown = ({ type, title, itemsList, setQuery }) => {
   };
 
   const toggleList = () => {
-    // reveal dropdowm
+    // reveal or hide dropdowm
     setIsOpen(!isOpen);
   };
 

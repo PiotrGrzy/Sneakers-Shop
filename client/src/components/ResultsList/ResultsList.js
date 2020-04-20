@@ -1,26 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import SneakerLI from '../SneakerLI/SneakerLI';
 import { selectSearchResults } from '../../redux/shop/shop.selectors';
-import { fetchSearchResults, setLoading } from '../../redux/shop/shop.actions';
-
+import { setLoading } from '../../redux/shop/shop.actions';
 import './results-list.scss';
 import Spinner from '../spinner/Spinner';
 import filterCategories from './filterCategories';
 
-const ResultsList = ({
-  searchQuery,
-  searchResults,
-  fetchSearchResults,
-  setLoading,
-  isLoading,
-}) => {
-  useEffect(() => {
-    setLoading();
-    fetchSearchResults(searchQuery);
-  }, []);
-
+export const ResultsList = ({ searchResults, isLoading, searchQuery }) => {
   if (isLoading)
     return (
       <div className="results-list">
@@ -35,7 +23,7 @@ const ResultsList = ({
           No results with given criteria
         </p>
       ) : searchQuery.category.length > 0 ? (
-        // instant filtering on front
+        // instant filtering on frontend, this should not be filtered in this component, todo: fix it
         filterCategories(searchResults, searchQuery.category).map((item) => (
           <SneakerLI key={item.id} sneaker={item} />
         ))
@@ -54,6 +42,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchSearchResults, setLoading })(
-  ResultsList
-);
+export default connect(mapStateToProps, { setLoading })(ResultsList);

@@ -2,15 +2,15 @@ import {
   ADD_ITEM,
   DECREASE_QUANTITY,
   REMOVE_ITEM,
-  TOGGLE_CART_VIEW
+  TOGGLE_CART_VIEW,
 } from './cart.types';
 
 import { addItem, decreaseQuantity } from './cart.utils';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   items: [],
   total: 0,
-  isOpen: false
+  isOpen: false,
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -18,22 +18,24 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case ADD_ITEM:
       return {
         ...state,
-        items: addItem(state.items, action.payload)
+        items: addItem(state.items, action.payload),
       };
     case DECREASE_QUANTITY:
       return {
         ...state,
-        items: decreaseQuantity(state.items, action.payload)
+        items: decreaseQuantity(state.items, action.payload),
       };
     case REMOVE_ITEM:
       return {
         ...state,
-        items: state.items.filter(cartItem => cartItem.id !== action.payload.id)
+        items: state.items.filter(
+          (cartItem) => cartItem.id !== action.payload.id
+        ),
       };
     case TOGGLE_CART_VIEW:
       return {
         ...state,
-        isOpen: !state.isOpen
+        isOpen: !state.isOpen,
       };
     default:
       return state;

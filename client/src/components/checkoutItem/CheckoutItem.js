@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import {
   addItemToCart,
   decrementItem,
-  removeItemFromCart
+  removeItemFromCart,
 } from '../../redux/cart/cart.actions';
 
 import './checkout-item.scss';
 
-const CheckoutItem = ({
+export const CheckoutItem = ({
   item,
   addItemToCart,
   decrementItem,
-  removeItemFromCart
+  removeItemFromCart,
 }) => {
   const { imageMain, model, brand, quantity, price, size } = item;
 
@@ -43,5 +43,5 @@ const CheckoutItem = ({
 export default connect(null, {
   addItemToCart,
   decrementItem,
-  removeItemFromCart
+  removeItemFromCart,
 })(CheckoutItem);
