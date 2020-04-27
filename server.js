@@ -16,9 +16,13 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(() => console.log('connected to mongo Database'));
+
+app.get('/', (req, res) => {
+  return res.send('Hello, ping me:)');
+});
 
 app.use(bodyParser({ extended: true }));
 app.use(cors());
