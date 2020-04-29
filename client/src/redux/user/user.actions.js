@@ -7,16 +7,16 @@ import {
   GET_USER_DATA,
   SIGNOUT_USER,
   INVALID_SIGNIN,
-  INVALID_SIGNUP
+  INVALID_SIGNUP,
 } from './user.types';
 
-export const signUp = (values, history) => async dispatch => {
+export const signUp = (values, history) => async (dispatch) => {
   try {
     const response = await axios({
       method: 'post',
-      url: 'http://localhost:5000/api/users',
+      url: 'https://sneakers-shop.herokuapp.com/api/users',
       data: JSON.stringify(values),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
 
     dispatch({ type: SIGNUP_USER, payload: response.data });
@@ -26,20 +26,20 @@ export const signUp = (values, history) => async dispatch => {
       imageUrl: 'https://unsplash.it/400/200',
       imageWidth: 300,
       imageHeight: 200,
-      imageAlt: 'Hello'
+      imageAlt: 'Hello',
     });
   } catch (err) {
     dispatch({ type: INVALID_SIGNUP, payload: err.response.data.msg });
   }
 };
 
-export const signIn = (values, history) => async dispatch => {
+export const signIn = (values, history) => async (dispatch) => {
   try {
     const response = await axios({
       method: 'post',
-      url: 'http://localhost:5000/api/auth',
+      url: 'https://sneakers-shop.herokuapp.com/api/auth',
       data: JSON.stringify(values),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
 
     dispatch({ type: SIGNIN_USER, payload: response.data });
@@ -50,7 +50,7 @@ export const signIn = (values, history) => async dispatch => {
       imageUrl: 'https://unsplash.it/400/200',
       imageWidth: 300,
       imageHeight: 200,
-      imageAlt: 'Hello'
+      imageAlt: 'Hello',
     });
   } catch (err) {
     console.log(err);
