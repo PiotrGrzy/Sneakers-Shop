@@ -2,11 +2,20 @@
     padding: 2rem;
     display: flex;
     justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 1rem;
 
     span {
         display: block;
         padding: .5rem;
         font-size: 1.4rem;
+        color: #ffffff;
 
+    }
+
+    &--titles {
+        span {
+            color: orangered;
+        }
     }
 }

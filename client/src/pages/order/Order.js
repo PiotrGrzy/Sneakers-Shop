@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import CustomButton from '../../components/customButton/CustomButton';
 import OrderItem from '../../components/orderItem/OrderItem';
+import PayPal from '../../components/paypal/PayPal';
 
 import './order.scss';
 
 const Order = ({ user, cartItems }) => {
   const {
+    id,
     email,
     firstName,
     lastName,
@@ -40,9 +42,18 @@ const Order = ({ user, cartItems }) => {
     return errors;
   };
 
+  const totalPrice = cartItems.reduce(
+    (total, item) => (total += item.price * item.quantity),
+    0
+  );
+
+  const orderDescription =
+    cartItems.length > 1
+      ? `You are buying ${cartItems.length} items.`
+      : `You are buying ${cartItems[0].brand} ${cartItems[0].model}`;
+
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
-    setSubmitting(false);
   };
   return (
     <div className="order">
@@ -108,19 +119,30 @@ const Order = ({ user, cartItems }) => {
                 component="div"
                 className="signup__warning"
               />
-
-              <CustomButton type="submit" disabled={isSubmitting}>
-                Sign Up
-              </CustomButton>
             </Form>
           )}
         </Formik>
       </div>
       <div className="order__cart-data">
         <h3 className="signup__heading">Your order:</h3>
+        <div className="order-item order-item--titles">
+          <span className="order-item__brand">Brand</span>
+          <span className="order-item__model">Model</span>
+          <span className="order-item__quantity">Quantity</span>
+          <span className="order-item__price">Price</span>
+        </div>
         {cartItems.map(item => (
           <OrderItem key={item.id} item={item} />
         ))}
+        <p className="order__total">Total price: {totalPrice} $</p>
+        <PayPal
+          order={{
+            price: totalPrice,
+            description: 'SneakerShop Order',
+            name: orderDescription
+          }}
+          user={(id, email, firstName, lastName, city, street, postalCode)}
+        />
       </div>
     </div>
   );
